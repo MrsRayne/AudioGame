@@ -1,4 +1,4 @@
-cd C:\Users\pc\GameDesign\Internship\RasaProject\RasaFolder
+cd C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\RasaFolder
 .\win-rasa2\Scripts\activate
 
 rasa run actions
