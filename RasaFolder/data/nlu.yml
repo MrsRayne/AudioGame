@@ -1,92 +1,51 @@
 version: "2.0"
-
 nlu:
-- intent: greet
+- intent: intent_schliessen
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-
-- intent: goodbye
+    - schliess die [tuer](object)
+    - bitte verschliesse den [schrank](object)
+    - mach die [schranktuer]{"entity": "object", "value": "schrank"} zu
+    - schliess die [schranktuer]{"entity": "object", "value": "schrank"}
+- intent: intent_oeffnen
   examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
+    - mach die [tuer](object) auf
+    - oeffne die [schranktuer] {"entity": "object","value": "schrank"}
+    - bitte schliesse den [schrank] (object) auf
+    - versuch, den [schrank] (object) zu oeffnen
+    - mach die [haustuer]{"entity": "object", "value": "tuer"} auf
+- intent: intent_schauen
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
+    - sieh in den [schrank] (object)
+    - sieh dir die [tuer] (object) an
+    - schau auf die [tuer] (object)
+    - untersuche die [tuer] (object)
+    - guck auf die [tuer] (object)
+    - untersuche die [holztuer]{"entity": "object", "value": "tuer"}
+- intent: intent_gehe_zu
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
+    - geh zur [tuer] (object)
+    - bewege dich naeher an die [tuer] (object) heran
+    - lauf zur [tuer] (object)
+    - mach dich auf den weg zur [tuer] (object)
+    - richtung [tuer] (object)
+    - geh zur [tuer](object)
+    - geh zur [tuer](object) bitte
+- intent: intent_status
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
+    - "[true](boolean)"
+    - "[false](boolean)"
+    - "that is [false](boolean)"
+- synonym: schrank
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
+    - schranktuer
+    - kommode
+    - regal
+    - regaltuer
+- synonym: tuer
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - haustuer
+    - holztuer
+    - tuer zum zimmer
+    - wohnzimmertuer
+    - grosse tuer
+    - zimmertuer
