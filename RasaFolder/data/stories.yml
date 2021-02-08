@@ -1,0 +1,62 @@
+version: "2.0"
+
+stories:
+
+- story: oeffnen
+  steps:
+  - intent: intent_oeffnen
+    entities:
+    - object: "tuer"
+  - slot_was_set:
+    - object: "tuer"
+  - action: utter_oeffne
+  - action: action_execute_action
+
+- story: schliessen
+  steps:
+  - intent: intent_schliessen
+    entities:
+    - object: "tuer"
+  - slot_was_set:
+    - object: "tuer"
+  - action: utter_schliesse
+  - action: action_execute_action
+
+- story: beschreibe 1
+  steps:
+  - intent: intent_schauen
+    entities:
+    - object: "tuer"
+  - slot_was_set:
+    - object: "tuer"
+  - action: utter_beschreibe_tuer
+
+- story: gehe zu
+  steps:
+  - intent: intent_gehe_zu
+    entities:
+    - object: "tuer"
+  - slot_was_set:
+    - object: "tuer"
+  - action: action_check_position
+  - intent: intent_status
+    entities:
+    - boolean: "true"
+  - slot_was_set:
+    - boolean: "true"
+  - action: utter_gehe_zu
+
+- story: interactive_story_1
+  steps:
+  - intent: intent_gehe_zu
+    entities:
+    - object: tuer
+  - slot_was_set:
+    - object: tuer
+  - action: action_check_position
+  - intent: intent_status
+    entities:
+    - boolean: "false"
+  - slot_was_set:
+    - boolean: "false"
+  - action: utter_bereits_ausgefuehrt

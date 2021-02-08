@@ -1,0 +1,6 @@
+cd C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\RasaFolder
+.\win-rasa2\Scripts\activate
+
+rasa run actions
+
+rasa shell

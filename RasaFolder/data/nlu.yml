@@ -1,0 +1,51 @@
+version: "2.0"
+nlu:
+- intent: intent_schliessen
+  examples: |
+    - schliess die [tuer](object)
+    - bitte verschliesse den [schrank](object)
+    - mach die [schranktuer]{"entity": "object", "value": "schrank"} zu
+    - schliess die [schranktuer]{"entity": "object", "value": "schrank"}
+- intent: intent_oeffnen
+  examples: |
+    - mach die [tuer](object) auf
+    - oeffne die [schranktuer] {"entity": "object","value": "schrank"}
+    - bitte schliesse den [schrank] (object) auf
+    - versuch, den [schrank] (object) zu oeffnen
+    - mach die [haustuer]{"entity": "object", "value": "tuer"} auf
+- intent: intent_schauen
+  examples: |
+    - sieh in den [schrank] (object)
+    - sieh dir die [tuer] (object) an
+    - schau auf die [tuer] (object)
+    - untersuche die [tuer] (object)
+    - guck auf die [tuer] (object)
+    - untersuche die [holztuer]{"entity": "object", "value": "tuer"}
+- intent: intent_gehe_zu
+  examples: |
+    - geh zur [tuer] (object)
+    - bewege dich naeher an die [tuer] (object) heran
+    - lauf zur [tuer] (object)
+    - mach dich auf den weg zur [tuer] (object)
+    - richtung [tuer] (object)
+    - geh zur [tuer](object)
+    - geh zur [tuer](object) bitte
+- intent: intent_status
+  examples: |
+    - "[true](boolean)"
+    - "[false](boolean)"
+    - "that is [false](boolean)"
+- synonym: schrank
+  examples: |
+    - schranktuer
+    - kommode
+    - regal
+    - regaltuer
+- synonym: tuer
+  examples: |
+    - haustuer
+    - holztuer
+    - tuer zum zimmer
+    - wohnzimmertuer
+    - grosse tuer
+    - zimmertuer
