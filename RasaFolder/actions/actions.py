@@ -33,7 +33,7 @@ class ActionCheckPosition(Action):
          return "action_check_position"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="checking position")
-        sendToUnity(text=f"gehen+{object}")
+        sendToUnity(f"gehen+{object}")
         return []
 
 class ActionMovePlayer(Action):
