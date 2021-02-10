@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     // Position 
     [SerializeField] GameObject windowTarget;
+    [SerializeField] GameObject tableTarget;
+    [SerializeField] GameObject catTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +46,32 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Change Position
+
     public void WindowPosition()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, windowTarget.transform.position, Time.deltaTime);   //is ugly, should be rewritten
+        StartCoroutine(LerpPosition(windowTarget.transform.position, 2));  
+    }
+    public void TablePosition()
+    {
+        StartCoroutine(LerpPosition(tableTarget.transform.position, 2));
+    }
+    public void CatPosition()
+    {
+        StartCoroutine(LerpPosition(catTarget.transform.position, 2));
+    }
+
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
     }
 }
