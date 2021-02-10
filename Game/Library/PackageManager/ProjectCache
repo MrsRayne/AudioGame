@@ -1,19 +1,19 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/pc/GameDesign/Internship/RasaProject/ProjectGit/Game/Packages/manifest.json
+    m_FilePath: E:/Praktikum/AudioGame3/Game/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637479487409776393
-    m_Hash: 2419126115
+      ticks: 637481150838093631
+    m_Hash: 4133715712
   m_LockFileStatus:
-    m_FilePath: C:/Users/pc/GameDesign/Internship/RasaProject/ProjectGit/Game/Packages/packages-lock.json
+    m_FilePath: E:/Praktikum/AudioGame3/Game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637484845058316798
+      ticks: 637485586043990518
     m_Hash: 1549302650
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -25,7 +25,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.9
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.collab-proxy@1.3.9
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.collab-proxy@1.3.9
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -120,7 +120,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.1
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.ide.rider@1.2.1
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.ide.rider@1.2.1
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -219,7 +219,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.5
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -236,28 +236,8 @@ m_PackageAssets:
       errors: []
       versions:
         all:
-        - 1.0.2
-        - 1.0.3
-        - 1.0.4
-        - 1.0.9
-        - 1.0.10
-        - 1.0.11
-        - 2.0.0
-        - 2.0.1
-        - 2.0.2
-        - 2.0.3
         - 2.0.5
         compatible:
-        - 1.0.2
-        - 1.0.3
-        - 1.0.4
-        - 1.0.9
-        - 1.0.10
-        - 1.0.11
-        - 2.0.0
-        - 2.0.1
-        - 2.0.2
-        - 2.0.3
         - 2.0.5
         verified: 2.0.5
       dependencies: []
@@ -275,7 +255,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637400980850000000
+      datePublishedTicks: 0
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -288,7 +268,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -357,7 +337,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 8.3.1
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.render-pipelines.universal@8.3.1
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.render-pipelines.universal@8.3.1
       assetPath: Packages/com.unity.render-pipelines.universal
       name: com.unity.render-pipelines.universal
       displayName: Universal RP
@@ -391,7 +371,6 @@ m_PackageAssets:
         - 7.4.3
         - 7.5.1
         - 7.5.2
-        - 7.5.3
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -405,7 +384,6 @@ m_PackageAssets:
         - 10.2.0
         - 10.2.1
         - 10.2.2
-        - 10.3.1
         compatible:
         - 8.3.1
         - 9.0.0-preview.14
@@ -463,7 +441,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.19
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.test-framework@1.1.19
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.test-framework@1.1.19
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -504,12 +482,10 @@ m_PackageAssets:
         - 1.1.18
         - 1.1.19
         - 1.1.20
-        - 1.1.22
         compatible:
         - 1.1.19
         - 1.1.20
-        - 1.1.22
-        verified: 1.1.22
+        verified: 1.1.20
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.5
@@ -552,7 +528,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.textmeshpro@3.0.1
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.textmeshpro@3.0.1
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -699,7 +675,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.6
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.timeline@1.3.6
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.timeline@1.3.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -732,7 +708,6 @@ m_PackageAssets:
         - 1.2.15
         - 1.2.16
         - 1.2.17
-        - 1.2.18
         - 1.3.0-preview.2
         - 1.3.0-preview.3
         - 1.3.0-preview.5
@@ -745,7 +720,6 @@ m_PackageAssets:
         - 1.3.4
         - 1.3.5
         - 1.3.6
-        - 1.3.7
         - 1.4.0-preview.1
         - 1.4.0-preview.2
         - 1.4.0-preview.3
@@ -758,7 +732,6 @@ m_PackageAssets:
         - 1.4.3
         - 1.4.4
         - 1.4.5
-        - 1.4.6
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -768,8 +741,6 @@ m_PackageAssets:
         - 1.5.1-pre.1
         - 1.5.1-pre.2
         - 1.5.1-pre.3
-        - 1.5.2
-        - 1.6.0-pre.1
         compatible:
         - 1.2.6
         - 1.2.7
@@ -782,7 +753,6 @@ m_PackageAssets:
         - 1.2.15
         - 1.2.16
         - 1.2.17
-        - 1.2.18
         - 1.3.0-preview.2
         - 1.3.0-preview.3
         - 1.3.0-preview.5
@@ -795,7 +765,6 @@ m_PackageAssets:
         - 1.3.4
         - 1.3.5
         - 1.3.6
-        - 1.3.7
         - 1.4.0-preview.1
         - 1.4.0-preview.2
         - 1.4.0-preview.3
@@ -808,7 +777,6 @@ m_PackageAssets:
         - 1.4.3
         - 1.4.4
         - 1.4.5
-        - 1.4.6
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -818,9 +786,7 @@ m_PackageAssets:
         - 1.5.1-pre.1
         - 1.5.1-pre.2
         - 1.5.1-pre.3
-        - 1.5.2
-        - 1.6.0-pre.1
-        verified: 1.3.7
+        verified: 1.3.6
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -2659,7 +2625,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.5
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.ext.nunit@1.0.5
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.ext.nunit@1.0.5
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -2720,7 +2686,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 8.3.1
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.render-pipelines.core@8.3.1
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.render-pipelines.core@8.3.1
       assetPath: Packages/com.unity.render-pipelines.core
       name: com.unity.render-pipelines.core
       displayName: Core RP Library
@@ -2809,7 +2775,6 @@ m_PackageAssets:
         - 7.4.3
         - 7.5.1
         - 7.5.2
-        - 7.5.3
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -2824,7 +2789,6 @@ m_PackageAssets:
         - 10.2.0
         - 10.2.1
         - 10.2.2
-        - 10.3.1
         compatible:
         - 8.3.1
         - 9.0.0-preview.13
@@ -2869,7 +2833,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 8.3.1
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.shadergraph@8.3.1
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.shadergraph@8.3.1
       assetPath: Packages/com.unity.shadergraph
       name: com.unity.shadergraph
       displayName: Shader Graph
@@ -2956,7 +2920,6 @@ m_PackageAssets:
         - 7.4.3
         - 7.5.1
         - 7.5.2
-        - 7.5.3
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -2970,7 +2933,6 @@ m_PackageAssets:
         - 10.2.0
         - 10.2.1
         - 10.2.2
-        - 10.3.1
         compatible:
         - 8.3.1
         - 9.0.0-preview.14
@@ -3020,7 +2982,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 4.0.9
       source: 1
-      resolvedPath: C:\Users\pc\GameDesign\Internship\RasaProject\ProjectGit\Game\Library\PackageCache\com.unity.searcher@4.0.9
+      resolvedPath: E:\Praktikum\AudioGame3\Game\Library\PackageCache\com.unity.searcher@4.0.9
       assetPath: Packages/com.unity.searcher
       name: com.unity.searcher
       displayName: Searcher
@@ -3091,5 +3053,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: C:/Users/pc/GameDesign/Internship/RasaProject/ProjectGit/Game/Packages
+m_ProjectPath: E:/Praktikum/AudioGame3/Game/Packages
 m_EditorVersion: 2020.1.17f1 (9957aee8edc2)
