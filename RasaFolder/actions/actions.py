@@ -32,24 +32,34 @@ class ActionCheckPosition(Action):
     def name(self) -> Text:
          return "action_check_position"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="checking position")
-        sendToUnity(f"gehen+{object}")
+        slot = tracker.get_slot('object')
+        #dispatcher.utter_message(text=slot)
+        slot = "gehen+" + slot
+        sendToUnity(slot)
         return []
 
-class ActionMovePlayer(Action):
+class ActionOpen(Action):
     def name(self) -> Text:
-         return "action_move_player"
+         return "action_open"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="moving player")
-        sendToUnity("hello")
+        slot = "open+" + tracker.get_slot('object')
+        sendToUnity(slot)
         return []
 
-class ActionExecutingAction(Action):
+class ActionClose(Action):
     def name(self) -> Text:
-         return "action_execute_action"
+         return "action_close"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="executing action")
-        sendToUnity("hello")
+        slot = "close+" + tracker.get_slot('object')
+        sendToUnity(slot)
+        return []
+
+class ActionPet(Action):
+    def name(self) -> Text:
+         return "action_pet"
+    def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
+        slot = "pet+" + tracker.get_slot('object')
+        sendToUnity(slot)
         return []
 
 # class ActionHelloWorld(Action):

@@ -2,50 +2,47 @@ version: "2.0"
 nlu:
 - intent: intent_schliessen
   examples: |
-    - schliess die [tuer](object)
-    - bitte verschliesse den [schrank](object)
-    - mach die [schranktuer]{"entity": "object", "value": "schrank"} zu
-    - schliess die [schranktuer]{"entity": "object", "value": "schrank"}
+    - schliess die [fenstertuer] {"entity": "object","value": "fenster"}
+    - bitte verschliesse das [fenster](object)
+    - mach die [fenstertuer] {"entity": "object","value": "fenster"} zu
+    - schliess die [fenstertuer] {"entity": "object","value": "fenster"}
 - intent: intent_oeffnen
   examples: |
-    - mach die [tuer](object) auf
-    - oeffne die [schranktuer] {"entity": "object","value": "schrank"}
-    - bitte schliesse den [schrank] (object) auf
-    - versuch, den [schrank] (object) zu oeffnen
-    - mach die [haustuer]{"entity": "object", "value": "tuer"} auf
-- intent: intent_schauen
-  examples: |
-    - sieh in den [schrank] (object)
-    - sieh dir die [tuer] (object) an
-    - schau auf die [tuer] (object)
-    - untersuche die [tuer] (object)
-    - guck auf die [tuer] (object)
-    - untersuche die [holztuer]{"entity": "object", "value": "tuer"}
+    - mach das [fenster](object) auf
+    - oeffne die [fenstertuer] {"entity": "object","value": "fenster"}
+    - bitte schliesse die [fenstertuer] {"entity": "object","value": "fenster"} auf
+    - versuch, das [fenster] (object) zu oeffnen
+    - mach die [fenstertuer]{"entity": "object", "value": "fenster"} auf
 - intent: intent_gehe_zu
   examples: |
-    - geh zur [tuer] (object)
-    - bewege dich naeher an die [tuer] (object) heran
-    - lauf zur [tuer] (object)
-    - mach dich auf den weg zur [tuer] (object)
-    - richtung [tuer] (object)
-    - geh zur [tuer](object)
-    - geh zur [tuer](object) bitte
-- intent: intent_status
+    - geh zum [radio] (object)
+    - bewege dich naeher an die [katze] (object) heran
+    - lauf zum [fenster] (object)
+    - mach dich auf den weg zur [katze] (object)
+    - richtung [musik] {"entity":"object","value":"radio"}
+    - geh zu den [voegeln]{"entity":"object","value":"fenster"}
+    - wo kommt das [vogelgezwitscher]{"entity":"object","value":"fenster"} her?
+    - sieh nach [draussen]{"entity":"object","value":"fenster"}
+    - wo kommt die [musik]{"entity":"object","value":"radio"} her?
+    - sieh aus dem [fenster] (object)
+- intent: intent_streichle
   examples: |
-    - "[true](boolean)"
-    - "[false](boolean)"
-    - "that is [false](boolean)"
-- synonym: schrank
+    - streichel die [katze] (object)
+    - streichele die [katze] (object)
+    - spiel mit der [katze] (object)
+    - kann ich die [katze] (object) streicheln?
+    - jo bitte streichel die [katze] (object)
+- synonym: radio
   examples: |
-    - schranktuer
-    - kommode
-    - regal
-    - regaltuer
-- synonym: tuer
+    - musik
+    - radiogeraeusche
+    - frequenzen
+    - fernseher
+- synonym: fenster
   examples: |
-    - haustuer
-    - holztuer
-    - tuer zum zimmer
-    - wohnzimmertuer
-    - grosse tuer
-    - zimmertuer
+    - voegel
+    - vogel
+    - vogelgezwitscher
+    - draussen
+    - natur
+    - fenstertuer
