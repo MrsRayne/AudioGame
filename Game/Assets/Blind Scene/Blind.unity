@@ -277,24 +277,73 @@ MonoBehaviour:
   windowTarget: {fileID: 1798576173}
   tableTarget: {fileID: 182295665}
   catTarget: {fileID: 1346395922}
+  window: 0
+  table: 0
+  cat: 0
   onPreLeftFootstep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279931895}
+        m_TargetAssemblyTypeName: TriggerFootstepAudio, Assembly-CSharp
+        m_MethodName: PlayRustle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLeftFootstep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279931895}
+        m_TargetAssemblyTypeName: TriggerFootstepAudio, Assembly-CSharp
+        m_MethodName: PlayFootstep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPreRightFootstep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 84170451}
+        m_TargetAssemblyTypeName: TriggerFootstepAudio, Assembly-CSharp
+        m_MethodName: PlayRustle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRightFootstep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 84170451}
+        m_TargetAssemblyTypeName: TriggerFootstepAudio, Assembly-CSharp
+        m_MethodName: PlayFootstep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
   movementDuration: 0.4
-  runMultiplier: 2
-  window: 0
 --- !u!4 &22313198
 Transform:
   m_ObjectHideFlags: 0
@@ -478,6 +527,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &84170451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7058310596879759171, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+  m_PrefabInstance: {fileID: 769440900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deedb41ef648d894284b6c3efafca6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &102668312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2392,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279931895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44602170728286787, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+  m_PrefabInstance: {fileID: 133521044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deedb41ef648d894284b6c3efafca6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303543129
 GameObject:
   m_ObjectHideFlags: 0

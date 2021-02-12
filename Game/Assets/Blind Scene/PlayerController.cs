@@ -33,7 +33,13 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     [SerializeField] GameObject windowTarget;
     [SerializeField] GameObject tableTarget;
     [SerializeField] GameObject catTarget;
-    private Vector3 lastTarget;
+
+    public bool window = false;
+    public bool table = false;
+    public bool cat = false;
+
+    Vector3 move;
+    Vector3 target;
 
     // Spatial Sound Control
     public UnityEvent onPreLeftFootstep;
@@ -41,7 +47,6 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public UnityEvent onPreRightFootstep;
     public UnityEvent onRightFootstep;
 
-    Vector3 offset;
     public LayerMask obstacleMask;
 
     Coroutine movementCoroutine;
@@ -50,12 +55,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public float movementDuration = 0.4f;
     private float movementSpeed = 2f;
 
-    [Min(0.01f)] public float runMultiplier = 2f;
 
-    public bool window = false;
+    
 
-
-    // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -67,11 +69,13 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     void FixedUpdate()
     {
         isGrounded = true;
+
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
+        // Rotation
+
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = -Input.GetAxis("Mouse Y");
 
@@ -80,10 +84,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         rotationX = Mathf.Clamp(rotationX, -clampAngleDegrees, clampAngleDegrees);
         mainCamera.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0.0f);
 
-        float running = Input.GetKey(KeyCode.LeftShift) ? runMultiplier : 1f;
-        CollisionForce = WalkSpeed * running;
+        CollisionForce = WalkSpeed;
 
-        characterController.SimpleMove(movementSpeed * lastTarget);
+        // Movement
 
         if (movement)
         {
@@ -92,15 +95,58 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
         SetCursorLock();
 
+        Vector3 offset = target - characterController.transform.position;
+        float distance = Vector3.Distance(characterController.transform.position, target);
+        offset = offset.normalized * 2f;
+        Physics.SyncTransforms();
+        characterController.SimpleMove(move);
+
+        // Change Position
+
         if (window)
         {
-            Vector3 offset = windowTarget.transform.position - characterController.transform.position;
-            Physics.SyncTransforms();
-            offset = offset.normalized * 2f;
-            characterController.SimpleMove(offset * 4f);
-        }
-        
+            target = windowTarget.transform.position;
+            movement = true;
 
+            if(distance > 0.1f)
+            {
+                move = offset * 5f;
+            }
+            else if(distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                movement = false;
+                window = false;
+            }            
+        }
+        if (table)
+        {
+            target = tableTarget.transform.position;
+
+            if (distance > 0.1f)
+            {
+                move = offset * 4f;
+            }
+            else if (distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                table = false;
+            }
+        }
+        if (cat)
+        {
+            target = catTarget.transform.position;
+
+            if (distance > 0.1f)
+            {
+                move = offset * 4f;
+            }
+            else if (distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                cat = false;
+            }
+        }        
     }
 
     
@@ -115,81 +161,17 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
     public void WindowPosition()
     {
-        Movement(windowTarget.transform.position);
-        lastTarget = windowTarget.transform.position;
+        window = true;
     }
     public void TablePosition()
     {
-        StartCoroutine(LerpPosition(tableTarget.transform.position, 2));
+        table = true;
     }
     public void CatPosition()
     {
-        StartCoroutine(LerpPosition(catTarget.transform.position, 2));
+        cat = true;
     }
 
-    void Movement(Vector3 targetPosition)
-    {
-        //Vector3 offset = targetPosition - this.transform.position;
-        //Debug.Log(offset);
-
-        if (offset.magnitude > 0.1f)
-        {
-            characterController.SimpleMove(offset*0.5f);
-           
-            //StartCoroutine(ChangePosition(targetPosition));
-        }
-        else if(offset.magnitude <= 0.1f)
-        {
-            StopCoroutine(ChangePosition(targetPosition));
-        }
-
-        //Debug.Log(offset.magnitude);
-    }
-
-    IEnumerator ChangePosition(Vector3 targetPosition)
-    {        
-        Vector3 targetVector = targetPosition - transform.position;
-        while (true)
-        {
-            characterController.SimpleMove(targetVector);
-            yield return null;
-            Debug.Log(targetPosition);
-        }
-        
-
-        /*float distance = Vector3.Distance(targetPosition, characterController.transform.position);
-
-        while (offset.magnitude > 0.1f)
-        {
-            //offset = offset * 2f;
-            characterController.Move(offset * Time.deltaTime);
-            //Debug.Log(offset);
-
-            yield return null;
-        }
-
-        //transform.position = targetPosition;
-        //characterController.Move(Vector3.zero * Time.deltaTime);
-        */
-    }
-
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
-    {
-        float time = 0;
-        Vector3 startPosition = transform.position;
-
-        while (time < duration)
-        {
-            movement = true;
-            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = targetPosition;
-        movement = false;
-        lastTarget = targetPosition;
-
-    }
 
     IEnumerator FootstepSoundTrigger()
     {
