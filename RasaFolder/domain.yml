@@ -3,49 +3,26 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - intent_gehe_zu:
-    use_entities: []
+    use_entities:
+      - object
 - intent_schliessen:
-    use_entities: []
+    use_entities:
+      - object
 - intent_oeffnen:
-    use_entities: []
-- intent_schauen:
-    use_entities: []
-- intent_status:
-    use_entities: []
+    use_entities:
+      - object
+- intent_streichle:
+    use_entities:
+      - object
 entities:
 - object
-- boolean
 slots:
   object:
     type: text
     influence_conversation: true
-  boolean:
-    type: text
-    influence_conversation: true
-responses:
-  utter_schliesse:
-  - text: schliesse {object}
-  utter_nicht_moeglich:
-  - text: diese aktion ist unmoeglich
-  utter_oeffne:
-  - text: oeffne {object}
-  utter_beschreibe_tuer:
-  - text: du siehst eine tuer
-  utter_beschreibe_schrank:
-  - text: du siehst einen schrank
-  utter_gehe_zu:
-  - text: gehe richtung {object}
-  utter_bereits_ausgefuehrt:
-  - text: du hast diese aktion bereits ausgefuehrt
 actions:
 - action_check_position
-- action_execute_action
-- action_move_player
-- utter_bereits_ausgefuehrt
-- utter_beschreibe_schrank
-- utter_beschreibe_tuer
-- utter_gehe_zu
-- utter_nicht_moeglich
-- utter_oeffne
-- utter_schliesse
+- action_open
+- action_close
+- action_pet
 version: '2.0'

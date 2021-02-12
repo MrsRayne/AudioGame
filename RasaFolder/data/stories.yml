@@ -6,57 +6,43 @@ stories:
   steps:
   - intent: intent_oeffnen
     entities:
-    - object: "tuer"
+    - object: "fenster"
   - slot_was_set:
-    - object: "tuer"
-  - action: utter_oeffne
-  - action: action_execute_action
+    - object: "fenster"
+  - action: action_open
 
 - story: schliessen
   steps:
   - intent: intent_schliessen
     entities:
-    - object: "tuer"
+    - object: "fenster"
   - slot_was_set:
-    - object: "tuer"
-  - action: utter_schliesse
-  - action: action_execute_action
+    - object: "fenster"
+  - action: action_close
 
-- story: beschreibe 1
+- story: streicheln
   steps:
-  - intent: intent_schauen
+  - intent: intent_streichle
     entities:
-    - object: "tuer"
+    - object: "katze"
   - slot_was_set:
-    - object: "tuer"
-  - action: utter_beschreibe_tuer
+    - object: "katze"
+  - action: action_pet
 
 - story: gehe zu
   steps:
   - intent: intent_gehe_zu
     entities:
-    - object: "tuer"
+    - object: "fenster"
   - slot_was_set:
-    - object: "tuer"
+    - object: "fenster"
   - action: action_check_position
-  - intent: intent_status
-    entities:
-    - boolean: "true"
-  - slot_was_set:
-    - boolean: "true"
-  - action: utter_gehe_zu
 
 - story: interactive_story_1
   steps:
   - intent: intent_gehe_zu
     entities:
-    - object: tuer
+    - object: fenster
   - slot_was_set:
-    - object: tuer
+    - object: fenster
   - action: action_check_position
-  - intent: intent_status
-    entities:
-    - boolean: "false"
-  - slot_was_set:
-    - boolean: "false"
-  - action: utter_bereits_ausgefuehrt
