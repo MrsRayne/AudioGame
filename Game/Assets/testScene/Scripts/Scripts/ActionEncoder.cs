@@ -7,7 +7,7 @@ public class ActionEncoder : MonoBehaviour
     [SerializeField] List<GameObject> gameObjects = new List<GameObject>();
     GameObject selectedGameObject;
     bool toReturn;
-    enum ActionTypes { Oeffnen, Schliessen, Gehen, Betrachten };
+    enum ActionTypes { Oeffnen, Schliessen, Gehen, Streicheln };
     ActionTypes actionTypes;
     public static ActionEncoder instance;
     [SerializeField] PlayerController playerController;
@@ -38,20 +38,22 @@ public class ActionEncoder : MonoBehaviour
             }
             switch (messageParts[0])
             {
-                case "oeffnen":
+                case "open":
                     actionTypes = ActionTypes.Oeffnen;
                     toReturn = !selectedGameObject.GetComponent<ObjectProperties>().open;
                     if (toReturn)
                     {
-                        selectedGameObject.GetComponent<ObjectProperties>().open = true;
+                        playerController.OpenWindow();
+                        //selectedGameObject.GetComponent<ObjectProperties>().open = true;
                     }
                     break;
-                case "schliessen":
+                case "close":
                     actionTypes = ActionTypes.Schliessen;
                     toReturn = selectedGameObject.GetComponent<ObjectProperties>().open;
                     if (toReturn)
                     {
-                        selectedGameObject.GetComponent<ObjectProperties>().open = false;
+                        playerController.CloseWindow();
+                        //selectedGameObject.GetComponent<ObjectProperties>().open = false;
                     }
                     break;
                 case "gehen":
@@ -74,8 +76,12 @@ public class ActionEncoder : MonoBehaviour
                     }
                     //}
                     break;
-                case "betrachten":
-                    actionTypes = ActionTypes.Betrachten;
+                case "pet":
+                    if (selectedGameObject == gameObjects[0])
+                    {
+                        actionTypes = ActionTypes.Streicheln;
+                        playerController.PetCat();
+                    }
                     break;
                 default:
                     break;

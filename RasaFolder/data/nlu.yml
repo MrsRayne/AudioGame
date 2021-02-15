@@ -74,6 +74,8 @@ nlu:
     - radiogeraeusche
     - frequenzen
     - fernseher
+    - tisch
+    - radioecke
 - synonym: fenster
   examples: |
     - voegel

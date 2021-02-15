@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     [SerializeField] GameObject tableTarget;
     [SerializeField] GameObject catTarget;
 
+    [SerializeField] GameObject birdSounds;
+    [SerializeField] GameObject CatSound;
+
     public bool window = false;
     public bool table = false;
     public bool cat = false;
@@ -170,8 +173,18 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     {
         cat = true;
     }
-
-
+    public void PetCat()
+    {
+        CatSound.GetComponents<AudioSource>()[1].Play();
+    }
+    public void OpenWindow()
+    {
+        birdSounds.SetActive(true);
+    }
+    public void CloseWindow()
+    {
+        birdSounds.SetActive(false);
+    }
     IEnumerator FootstepSoundTrigger()
     {
         var startTime = Time.time;
