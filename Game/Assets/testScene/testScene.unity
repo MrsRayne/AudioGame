@@ -338,6 +338,18 @@ PrefabInstance:
       propertyPath: boxRegionSize.z
       value: 0.34
       objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
 --- !u!1 &263426388
@@ -718,6 +730,18 @@ PrefabInstance:
     - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
       propertyPath: boxRegionSize.z
       value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
@@ -1779,6 +1803,18 @@ PrefabInstance:
     - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
       propertyPath: boxRegionSize.z
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833266765441320, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}
+      propertyPath: proxyRoomSize.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd0905b93de2460b8baaa682c7dac27, type: 3}

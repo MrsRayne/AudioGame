@@ -65,13 +65,13 @@ public class ActionEncoder : MonoBehaviour
                     switch (messageParts[1])
                     {
                         case "katze":
-                            playerController.CatPosition();
+                            playerController.cat = true;
                             break;
                         case "radio":
-                            playerController.TablePosition();
+                            playerController.table = true;
                             break;
                         case "fenster":
-                            playerController.WindowPosition();
+                            playerController.window = true;
                             break;
                     }
                     //}
