@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+using UnityStandardAssets.Characters.FirstPerson;
 
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, ICollisionForce
 {
     public Camera mainCamera;
     private CharacterController characterController = null;
+
+    public float WalkSpeed => 4f;
+
+    public bool Grounded => isGrounded;
+    bool isGrounded;
+
+    public float CollisionForce { get; private set; }
+    public RigidbodyFirstPersonController.AdvancedSettings advancedSettings = new RigidbodyFirstPersonController.AdvancedSettings();
+    public UnityEvent onLand = default;
 
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
@@ -24,7 +34,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject tableTarget;
     [SerializeField] GameObject catTarget;
 
-    // Start is called before the first frame update
+    public bool window = false;
+    public bool table = false;
+    public bool cat = false;
+
+    Vector3 move;
+    Vector3 target;
+
+    // Spatial Sound Control
+    public UnityEvent onPreLeftFootstep;
+    public UnityEvent onLeftFootstep;
+    public UnityEvent onPreRightFootstep;
+    public UnityEvent onRightFootstep;
+
+    public LayerMask obstacleMask;
+
+    Coroutine movementCoroutine;
+    bool movement = false;
+    bool leftFootstep;
+    public float movementDuration = 0.4f;
+    private float movementSpeed = 2f;
+
+
+    
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -33,9 +66,16 @@ public class PlayerController : MonoBehaviour
         rotationY = rotation.y;
     }
 
-    // Update is called once per frame
+    void FixedUpdate()
+    {
+        isGrounded = true;
+
+    }
+
     void LateUpdate()
     {
+        // Rotation
+
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = -Input.GetAxis("Mouse Y");
 
@@ -44,34 +84,129 @@ public class PlayerController : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -clampAngleDegrees, clampAngleDegrees);
         mainCamera.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0.0f);
 
+        CollisionForce = WalkSpeed;
+
+        // Movement
+
+        if (movement)
+        {
+            movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+        }
+
+        SetCursorLock();
+
+        Vector3 offset = target - characterController.transform.position;
+        float distance = Vector3.Distance(characterController.transform.position, target);
+        offset = offset.normalized * 2f;
+        Physics.SyncTransforms();
+        characterController.SimpleMove(move);
+
+        // Change Position
+
+        if (window)
+        {
+            target = windowTarget.transform.position;
+            movement = true;
+
+            if(distance > 0.1f)
+            {
+                move = offset * 5f;
+            }
+            else if(distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                movement = false;
+                window = false;
+            }            
+        }
+        if (table)
+        {
+            target = tableTarget.transform.position;
+
+            if (distance > 0.1f)
+            {
+                move = offset * 4f;
+            }
+            else if (distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                table = false;
+            }
+        }
+        if (cat)
+        {
+            target = catTarget.transform.position;
+
+            if (distance > 0.1f)
+            {
+                move = offset * 4f;
+            }
+            else if (distance <= 0.1f)
+            {
+                move = Vector3.zero;
+                cat = false;
+            }
+        }        
+    }
+
+    
+    // Sets the cursor lock for first-person control.
+    private void SetCursorLock()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Change Position
 
     public void WindowPosition()
     {
-        StartCoroutine(LerpPosition(windowTarget.transform.position, 2));  
+        window = true;
     }
     public void TablePosition()
     {
-        StartCoroutine(LerpPosition(tableTarget.transform.position, 2));
+        table = true;
     }
     public void CatPosition()
     {
-        StartCoroutine(LerpPosition(catTarget.transform.position, 2));
+        cat = true;
     }
 
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
-    {
-        float time = 0;
-        Vector3 startPosition = transform.position;
 
-        while (time < duration)
+    IEnumerator FootstepSoundTrigger()
+    {
+        var startTime = Time.time;
+
+        PreFootstepEvents();
+
+        yield return new WaitForSeconds(0.1f);
+
+        FootstepEvents();
+        movementCoroutine = null;
+    }
+
+    void PreFootstepEvents()
+    {
+        if (leftFootstep)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
+            onPreLeftFootstep?.Invoke();
         }
-        transform.position = targetPosition;
+        else
+        {
+            onPreRightFootstep?.Invoke();
+        }
+    }
+
+    void FootstepEvents()
+    {
+        if (leftFootstep)
+        {
+            onLeftFootstep?.Invoke();
+        }
+        else
+        {
+            onRightFootstep?.Invoke();
+        }
+        leftFootstep = !leftFootstep;
     }
 }
