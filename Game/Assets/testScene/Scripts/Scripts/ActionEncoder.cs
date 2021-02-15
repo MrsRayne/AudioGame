@@ -5,34 +5,37 @@ using UnityEngine;
 public class ActionEncoder : MonoBehaviour
 {
     [SerializeField] List<GameObject> gameObjects = new List<GameObject>();
-    GameObject selectedGameObject; 
+    GameObject selectedGameObject;
     bool toReturn;
-    enum ActionTypes {Oeffnen, Schliessen, Gehen, Betrachten};
+    enum ActionTypes { Oeffnen, Schliessen, Gehen, Betrachten };
     ActionTypes actionTypes;
     public static ActionEncoder instance;
+    [SerializeField] PlayerController playerController;
     private void Start()
     {
         instance = this;
     }
     public void ActionDecoder(string message)
     {
-        print(message);
-        if (message.Split('+').Length>1)
-        { 
-        string[] messageParts = new string[] { message.Split('+')[0], message.Split('+')[1] };
-        print(messageParts[0] + " " + messageParts[1]);
-        
-        switch (messageParts[1])
+        if (message.Split('+').Length > 1)
         {
-            case "tuer":
-                selectedGameObject = gameObjects[0];
-                break;
-            case "schrank":
-                selectedGameObject = gameObjects[1];
-                break;
-            default:
-                break;
-        }
+            string[] messageParts = new string[] { message.Split('+')[0], message.Split('+')[1] };
+            print(messageParts[0] + " " + messageParts[1]);
+
+            switch (messageParts[1])
+            {
+                case "katze":
+                    selectedGameObject = gameObjects[0];
+                    break;
+                case "radio":
+                    selectedGameObject = gameObjects[1];
+                    break;
+                case "fenster":
+                    selectedGameObject = gameObjects[2];
+                    break;
+                default:
+                    break;
+            }
             switch (messageParts[0])
             {
                 case "oeffnen":
@@ -53,12 +56,23 @@ public class ActionEncoder : MonoBehaviour
                     break;
                 case "gehen":
                     actionTypes = ActionTypes.Gehen;
-                    toReturn = selectedGameObject != PlayerScript.instance.currentPositionObject ? true : false;
-                    if (toReturn)
+                    //toReturn = selectedGameObject != PlayerScript.instance.currentPositionObject ? true : false;
+                    //if (toReturn)
+                    //{
+                    //PlayerScript.instance.currentPositionObject = selectedGameObject;
+                    switch (messageParts[1])
                     {
-                        PlayerScript.instance.currentPositionObject = selectedGameObject;
-                        PlayerScript.instance.gameObject.transform.position = selectedGameObject.GetComponent<ObjectProperties>().position;
+                        case "katze":
+                            playerController.CatPosition();
+                            break;
+                        case "radio":
+                            playerController.TablePosition();
+                            break;
+                        case "fenster":
+                            playerController.WindowPosition();
+                            break;
                     }
+                    //}
                     break;
                 case "betrachten":
                     actionTypes = ActionTypes.Betrachten;
@@ -67,6 +81,5 @@ public class ActionEncoder : MonoBehaviour
                     break;
             }
         }
-        NetworkManager.instance.SendMessageToRasa(toReturn.ToString());
     }
 }

@@ -158,7 +158,6 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     }
 
     // Change Position
-
     public void WindowPosition()
     {
         window = true;

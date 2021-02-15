@@ -85,7 +85,6 @@ public class UnityServerForPython : MonoBehaviour //if you dont understand whats
                                 if (clientMessage.Split(split, StringSplitOptions.None).Length > 1)
                                     clientMessage = clientMessage.Split(split, StringSplitOptions.None)[1];
                                 clientMessage = clientMessage.Split('"')[0];
-                                print(clientMessage);
                             }
                             else
                             {
