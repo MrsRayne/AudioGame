@@ -32,7 +32,7 @@ class ActionCheckPosition(Action):
     def name(self) -> Text:
          return "action_check_position"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        slot = tracker.get_slot('object')
+        slot = tracker.get_slot('obj')
         #dispatcher.utter_message(text=slot)
         slot = "gehen+" + slot
         sendToUnity(slot)
@@ -42,7 +42,7 @@ class ActionOpen(Action):
     def name(self) -> Text:
          return "action_open"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        slot = "open+" + tracker.get_slot('object')
+        slot = "open+" + tracker.get_slot('obj')
         sendToUnity(slot)
         return []
 
@@ -50,7 +50,7 @@ class ActionClose(Action):
     def name(self) -> Text:
          return "action_close"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        slot = "close+" + tracker.get_slot('object')
+        slot = "close+" + tracker.get_slot('obj')
         sendToUnity(slot)
         return []
 
@@ -58,7 +58,7 @@ class ActionPet(Action):
     def name(self) -> Text:
          return "action_pet"
     def run(self, dispatcher, tracker:Tracker, domain:"DomainDict") -> List[Dict[Text, Any]]:
-        slot = "pet+" + tracker.get_slot('object')
+        slot = "pet+" + tracker.get_slot('obj')
         sendToUnity(slot)
         return []
 

@@ -6,43 +6,43 @@ stories:
   steps:
   - intent: intent_oeffnen
     entities:
-    - object: "fenster"
+    - obj: "fenster"
   - slot_was_set:
-    - object: "fenster"
+    - obj: "fenster"
   - action: action_open
 
 - story: schliessen
   steps:
   - intent: intent_schliessen
     entities:
-    - object: "fenster"
+    - obj: "fenster"
   - slot_was_set:
-    - object: "fenster"
+    - obj: "fenster"
   - action: action_close
 
 - story: streicheln
   steps:
   - intent: intent_streichle
     entities:
-    - object: "katze"
+    - obj: "katze"
   - slot_was_set:
-    - object: "katze"
+    - obj: "katze"
   - action: action_pet
 
 - story: gehe zu
   steps:
   - intent: intent_gehe_zu
     entities:
-    - object: "fenster"
+    - obj: "fenster"
   - slot_was_set:
-    - object: "fenster"
+    - obj: "fenster"
   - action: action_check_position
 
 - story: interactive_story_1
   steps:
   - intent: intent_gehe_zu
     entities:
-    - object: fenster
+    - obj: fenster
   - slot_was_set:
-    - object: fenster
+    - obj: fenster
   - action: action_check_position

@@ -3,21 +3,18 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - intent_gehe_zu:
-    use_entities:
-      - object
+      use_entities: []
 - intent_schliessen:
-    use_entities:
-      - object
+      use_entities: []
 - intent_oeffnen:
     use_entities:
-      - object
+      use_entities: []
 - intent_streichle:
-    use_entities:
-      - object
+      use_entities: []
 entities:
-- object
+   - obj
 slots:
-  object:
+  obj:
     type: text
     influence_conversation: true
 actions:
