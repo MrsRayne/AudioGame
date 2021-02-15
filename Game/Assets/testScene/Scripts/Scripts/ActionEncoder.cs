@@ -40,21 +40,21 @@ public class ActionEncoder : MonoBehaviour
             {
                 case "open":
                     actionTypes = ActionTypes.Oeffnen;
-                    toReturn = !selectedGameObject.GetComponent<ObjectProperties>().open;
-                    if (toReturn)
-                    {
+                    //toReturn = !selectedGameObject.GetComponent<ObjectProperties>().open;
+                    //if (toReturn)
+                    //{
                         playerController.OpenWindow();
                         //selectedGameObject.GetComponent<ObjectProperties>().open = true;
-                    }
+                    //}
                     break;
                 case "close":
                     actionTypes = ActionTypes.Schliessen;
-                    toReturn = selectedGameObject.GetComponent<ObjectProperties>().open;
-                    if (toReturn)
-                    {
+                    //toReturn = selectedGameObject.GetComponent<ObjectProperties>().open;
+                    //if (toReturn)
+                    //{
                         playerController.CloseWindow();
                         //selectedGameObject.GetComponent<ObjectProperties>().open = false;
-                    }
+                    //}
                     break;
                 case "gehen":
                     actionTypes = ActionTypes.Gehen;
