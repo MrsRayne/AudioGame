@@ -89,26 +89,23 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
         CollisionForce = WalkSpeed;
 
-        // Movement
-
-        if (movement)
-        {
-            movementCoroutine = StartCoroutine(FootstepSoundTrigger());
-        }
+        
 
         SetCursorLock();
 
-        Vector3 offset = target - characterController.transform.position;
-        float distance = Vector3.Distance(characterController.transform.position, target);
-        offset = offset.normalized * 2f;
         Physics.SyncTransforms();
-        characterController.SimpleMove(move);
 
         // Change Position
 
         if (window)
         {
             target = windowTarget.transform.position;
+
+            Vector3 offset = target - characterController.transform.position;
+            float distance = Vector3.Distance(characterController.transform.position, target);
+            offset = offset.normalized * 2f;
+            Physics.SyncTransforms();
+
             movement = true;
 
             if(distance > 0.1f)
@@ -126,6 +123,13 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         {
             target = tableTarget.transform.position;
 
+            Vector3 offset = target - characterController.transform.position;
+            float distance = Vector3.Distance(characterController.transform.position, target);
+            offset = offset.normalized * 2f;
+            Physics.SyncTransforms();
+
+            movement = true;
+
             if (distance > 0.1f)
             {
                 move = offset * 4f;
@@ -140,6 +144,13 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         {
             target = catTarget.transform.position;
 
+            Vector3 offset = target - characterController.transform.position;
+            float distance = Vector3.Distance(characterController.transform.position, target);
+            offset = offset.normalized * 2f;
+            Physics.SyncTransforms();
+
+            movement = true;
+
             if (distance > 0.1f)
             {
                 move = offset * 4f;
@@ -149,7 +160,16 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
                 move = Vector3.zero;
                 cat = false;
             }
-        }        
+        }
+        
+        // Movement
+
+        if (movement)
+        {
+            movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+        }
+
+        characterController.SimpleMove(move);
     }
 
     
