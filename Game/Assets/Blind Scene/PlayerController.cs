@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public bool movement = false;
     bool leftFootstep;
     public float movementDuration = 0.4f;
-    private float movementSpeed = 2f;
+    private float movementSpeed = 4f;
 
 
     
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
             if (distance > 0.1f)
             {
-                move = offset * 5f;
+                move = offset * movementSpeed;
             }
             else if(distance <= 0.1f)
             {
@@ -134,7 +134,8 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
             if (distance > 0.1f)
             {
-                move = offset * 4f;
+                move = offset * movementSpeed;
+                StartCoroutine(FootstepSoundTrigger());
             }
             else if (distance <= 0.1f)
             {
@@ -212,11 +213,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     }
     IEnumerator FootstepSoundTrigger()
     {
-        var startTime = Time.time;
-
         PreFootstepEvents();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         FootstepEvents();
         movementCoroutine = null;
