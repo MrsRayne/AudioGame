@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public bool table = false;
     public bool cat = false;
 
+
     Vector3 move;
     Vector3 target;
 
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public LayerMask obstacleMask;
 
     Coroutine movementCoroutine;
-    bool movement = false;
+    public bool movement = false;
     bool leftFootstep;
     public float movementDuration = 0.4f;
     private float movementSpeed = 2f;
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
             movement = true;
 
-            if(distance > 0.1f)
+            if (distance > 0.1f)
             {
                 move = offset * 5f;
             }
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         if (table)
         {
             target = tableTarget.transform.position;
+            movement = true;
 
             Vector3 offset = target - characterController.transform.position;
             float distance = Vector3.Distance(characterController.transform.position, target);
@@ -137,12 +139,14 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
+                movement = false;
                 table = false;
             }
         }
         if (cat)
         {
             target = catTarget.transform.position;
+            movement = true;
 
             Vector3 offset = target - characterController.transform.position;
             float distance = Vector3.Distance(characterController.transform.position, target);
@@ -158,6 +162,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
+                movement = false;
                 cat = false;
             }
         }
@@ -211,7 +216,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
         PreFootstepEvents();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
 
         FootstepEvents();
         movementCoroutine = null;

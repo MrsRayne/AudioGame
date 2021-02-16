@@ -9,7 +9,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Player : MonoBehaviour, IGrounded, IMovementSpeed, ICollisionForce
 {
     public bool Grounded => isGrounded;
-    public float WalkSpeed => 4f;
+    public float WalkSpeed => 1f;
     public float CollisionForce { get; private set; }
     public RigidbodyFirstPersonController.AdvancedSettings advancedSettings = new RigidbodyFirstPersonController.AdvancedSettings();
     public UnityEvent onLand = default;

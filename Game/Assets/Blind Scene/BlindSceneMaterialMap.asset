@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b0f2e7fc23e46c78f6dc1a54c32708, type: 3}
+  m_Name: BlindSceneMaterialMap
+  m_EditorClassIdentifier: 
+  surfaceMaterialFromGuid:
+    guids:
+    - 0342cb33876e3184da18d04f8c1b4ac0
+    - 31321ba15b8f8eb4c954353edc038b1d
+    - b82ee2c76c972764fb7c620962fc13b2
+    - 0d57bd1b138ac5a47ad3d1d0fab5fa8f
+    - 83ddc353dc5659f4e804d8079d67b54c
+    - f8bcf178f4dc923408d5f0a17c8a52b4
+    - 4ecf6a56cd458244e9128e92ece72bfb
+    - 
+    - c86ada13d02120c499e56e1900e452c9
+    - bf4dc95e45f375c4c903ae4071235108
+    surfaceMaterials: 04000000000000000000000000000000000000000000000000000000000000000000000000000000

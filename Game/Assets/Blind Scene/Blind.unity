@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 22313200}
   - component: {fileID: 22313199}
   - component: {fileID: 22313197}
+  - component: {fileID: 22313202}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -345,6 +346,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
+  movement: 0
   movementDuration: 0.4
 --- !u!4 &22313198
 Transform:
@@ -439,6 +441,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &22313202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22313196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25874f97bd1f2d543b78a66b8dfaff74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycasts: 4
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  reflectionsLevelVariance: 2300
+  reflectionsDelayVariance: -0.18
+  reverbLevelVariance: -800
+  manipulationRange: {x: 0.5, y: 9}
 --- !u!1 &26910147
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,13 +674,21 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 869fafed7e1b8dd4face33d3b1bf9016, type: 3}
+    - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44602170728286787, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286787, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: fpsFootstepMaterials
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22313200}
     - target: {fileID: 44602170728286788, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1281,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &369632711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1876,6 +1906,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 31.25, z: 0}
+--- !u!1 &643577802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643577803}
+  - component: {fileID: 643577804}
+  m_Layer: 0
+  m_Name: AudioReverbZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643577803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643577802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &643577804
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643577802}
+  m_Enabled: 1
+  m_MinDistance: 15
+  m_MaxDistance: 20
+  m_ReverbPreset: 27
+  m_Room: -1000
+  m_RoomHF: -237
+  m_DecayTime: 1.65
+  m_DecayHFRatio: 0.83
+  m_Reflections: -1253
+  m_ReflectionsDelay: 0.017
+  m_Reverb: 354
+  m_ReverbDelay: 0.02
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &698954703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1998,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 22313198}
     m_Modifications:
+    - target: {fileID: 7058310596879759171, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+      propertyPath: fpsFootstepMaterials
+      value: 
+      objectReference: {fileID: 22313200}
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1921,6 +2010,10 @@ PrefabInstance:
       propertyPath: MaxDistance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 499dbe3a0fbe5ea4494ab3bcacf3e5f0, type: 3}
     - target: {fileID: 7058310596879759173, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1998,7 +2091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &800761689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3162,7 +3255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1804534761
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3761,7 +3854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1945674519
 BoxCollider:
   m_ObjectHideFlags: 0
