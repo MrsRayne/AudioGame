@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5599054}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 26910148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40191145}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 102668316}
   - component: {fileID: 102668315}
   - component: {fileID: 102668314}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,20 +666,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 22313198}
     m_Modifications:
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: MaxDistance
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 869fafed7e1b8dd4face33d3b1bf9016, type: 3}
+      objectReference: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286787, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: groundLayers.m_Bits
@@ -757,7 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156596832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +828,7 @@ GameObject:
   - component: {fileID: 183822716}
   - component: {fileID: 183822715}
   - component: {fileID: 183822714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1121,7 @@ GameObject:
   - component: {fileID: 326218672}
   - component: {fileID: 326218671}
   - component: {fileID: 326218670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1217,7 @@ GameObject:
   - component: {fileID: 332002665}
   - component: {fileID: 332002664}
   - component: {fileID: 332002663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1409,7 @@ GameObject:
   - component: {fileID: 379932591}
   - component: {fileID: 379932590}
   - component: {fileID: 379932589}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1626,7 +1634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 478186274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1736,7 @@ GameObject:
   - component: {fileID: 502233343}
   - component: {fileID: 502233342}
   - component: {fileID: 502233341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2003,17 +2011,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22313200}
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+      propertyPath: Pan2D
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: MaxDistance
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 499dbe3a0fbe5ea4494ab3bcacf3e5f0, type: 3}
+      objectReference: {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+    - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7058310596879759173, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2434,7 +2450,7 @@ GameObject:
   - component: {fileID: 1158154658}
   - component: {fileID: 1158154657}
   - component: {fileID: 1158154656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2568,7 +2584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1303543130}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2743,7 +2759,7 @@ GameObject:
   - component: {fileID: 1393244219}
   - component: {fileID: 1393244218}
   - component: {fileID: 1393244217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4151,7 +4167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058226851}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4181,7 +4197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2091527081}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

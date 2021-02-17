@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public bool movement = false;
     bool leftFootstep;
     public float movementDuration = 0.4f;
-    private float movementSpeed = 4f;
+    private float movementSpeed = 3f;
 
 
     
@@ -97,8 +97,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         Physics.SyncTransforms();
 
         // Change Position
+        Debug.Log(movementCoroutine);
 
-        if (window)
+        if (window && movementCoroutine == null)
         {
             target = windowTarget.transform.position;
 
@@ -107,54 +108,49 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             offset = offset.normalized * 2f;
             Physics.SyncTransforms();
 
-            movement = true;
-
             if (distance > 0.1f)
             {
                 move = offset * movementSpeed;
+                movementCoroutine = StartCoroutine(FootstepSoundTrigger());
             }
-            else if(distance <= 0.1f)
+            else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
-                movement = false;
                 window = false;
-            }            
+                StopCoroutine(FootstepSoundTrigger());
+            }
         }
-        if (table)
+        if (table && movementCoroutine == null)
         {
             target = tableTarget.transform.position;
-            movement = true;
 
             Vector3 offset = target - characterController.transform.position;
             float distance = Vector3.Distance(characterController.transform.position, target);
             offset = offset.normalized * 2f;
             Physics.SyncTransforms();
 
-            movement = true;
-
             if (distance > 0.1f)
             {
                 move = offset * movementSpeed;
-                StartCoroutine(FootstepSoundTrigger());
+                movementCoroutine = StartCoroutine(FootstepSoundTrigger());
             }
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
-                movement = false;
-                table = false;
+                window = false;
+                StopCoroutine(FootstepSoundTrigger());
             }
         }
         if (cat)
         {
             target = catTarget.transform.position;
-            movement = true;
-
+            
             Vector3 offset = target - characterController.transform.position;
             float distance = Vector3.Distance(characterController.transform.position, target);
             offset = offset.normalized * 2f;
             Physics.SyncTransforms();
 
-            movement = true;
+            movementCoroutine = StartCoroutine(FootstepSoundTrigger());
 
             if (distance > 0.1f)
             {
@@ -163,17 +159,11 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
-                movement = false;
                 cat = false;
             }
         }
         
         // Movement
-
-        if (movement)
-        {
-            movementCoroutine = StartCoroutine(FootstepSoundTrigger());
-        }
 
         characterController.SimpleMove(move);
     }
@@ -213,11 +203,18 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     }
     IEnumerator FootstepSoundTrigger()
     {
+        var startTime = Time.time;
         PreFootstepEvents();
 
-        yield return new WaitForSeconds(0.5f);
+        /*hile (Time.time < startTime + movementDuration)
+        {
+            //yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01f);
+        }*/
 
+        yield return new WaitForSeconds(movementDuration);
         FootstepEvents();
+        
         movementCoroutine = null;
     }
 
@@ -232,6 +229,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             onPreRightFootstep?.Invoke();
         }
     }
+
 
     void FootstepEvents()
     {

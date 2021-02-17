@@ -165,10 +165,12 @@ public class Player : MonoBehaviour, IGrounded, IMovementSpeed, ICollisionForce
         if (leftFootstep)
         {
             onLeftFootstep?.Invoke();
+            print("lfrt");
         }
         else
         {
             onRightFootstep?.Invoke();
+            print("------right");
         }
         leftFootstep = !leftFootstep;
     }
