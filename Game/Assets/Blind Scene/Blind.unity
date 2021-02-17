@@ -346,8 +346,8 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
-  movement: 0
-  movementDuration: 0.4
+  movementDuration: 0.6
+  isMoving: 0
 --- !u!4 &22313198
 Transform:
   m_ObjectHideFlags: 0
@@ -668,6 +668,10 @@ PrefabInstance:
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_Pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 44602170728286786, guid: bb3dcd83f893547499ce12bd6c0784cf, type: 3}
       propertyPath: m_Enabled
@@ -2013,6 +2017,10 @@ PrefabInstance:
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: Pan2D
       value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7058310596879759172, guid: 45a8df56ba83e37458c46a939463e3d3, type: 3}
       propertyPath: m_Enabled

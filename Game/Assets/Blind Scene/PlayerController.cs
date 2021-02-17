@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public bool Grounded => isGrounded;
     bool isGrounded;
 
+
     public float CollisionForce { get; private set; }
     public RigidbodyFirstPersonController.AdvancedSettings advancedSettings = new RigidbodyFirstPersonController.AdvancedSettings();
     public UnityEvent onLand = default;
@@ -54,13 +55,14 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     public LayerMask obstacleMask;
 
     Coroutine movementCoroutine;
-    public bool movement = false;
     bool leftFootstep;
-    public float movementDuration = 0.4f;
-    private float movementSpeed = 3f;
+    public float movementDuration = 0.6f;
+    private float movementSpeed = 1f;
+
+    public bool isMoving;
 
 
-    
+
 
     void Start()
     {
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         Vector3 rotation = mainCamera.transform.localRotation.eulerAngles;
         rotationX = rotation.x;
         rotationY = rotation.y;
+
+        movementCoroutine = null;
     }
 
     void FixedUpdate()
@@ -97,9 +101,8 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         Physics.SyncTransforms();
 
         // Change Position
-        Debug.Log(movementCoroutine);
 
-        if (window && movementCoroutine == null)
+        if (window)
         {
             target = windowTarget.transform.position;
 
@@ -108,19 +111,21 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             offset = offset.normalized * 2f;
             Physics.SyncTransforms();
 
-            if (distance > 0.1f)
+            if (distance > 0.1f && movementCoroutine == null)
             {
                 move = offset * movementSpeed;
-                movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+                if(movementCoroutine == null)
+                {
+                    movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+                }
             }
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
                 window = false;
-                StopCoroutine(FootstepSoundTrigger());
             }
         }
-        if (table && movementCoroutine == null)
+        if (table)
         {
             target = tableTarget.transform.position;
 
@@ -132,13 +137,15 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
             if (distance > 0.1f)
             {
                 move = offset * movementSpeed;
-                movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+                if (movementCoroutine == null)
+                {
+                    movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+                }
             }
             else if (distance <= 0.1f)
             {
                 move = Vector3.zero;
-                window = false;
-                StopCoroutine(FootstepSoundTrigger());
+                table = false;
             }
         }
         if (cat)
@@ -154,7 +161,11 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
 
             if (distance > 0.1f)
             {
-                move = offset * 4f;
+                move = offset * movementSpeed;
+                if (movementCoroutine == null)
+                {
+                    movementCoroutine = StartCoroutine(FootstepSoundTrigger());
+                }
             }
             else if (distance <= 0.1f)
             {
@@ -166,7 +177,9 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
         // Movement
 
         characterController.SimpleMove(move);
+
     }
+
 
     
     // Sets the cursor lock for first-person control.
@@ -203,18 +216,11 @@ public class PlayerController : MonoBehaviour, IGrounded, IMovementSpeed, IColli
     }
     IEnumerator FootstepSoundTrigger()
     {
-        var startTime = Time.time;
         PreFootstepEvents();
 
-        /*hile (Time.time < startTime + movementDuration)
-        {
-            //yield return new WaitForEndOfFrame();
-            yield return new WaitForSeconds(0.01f);
-        }*/
-
         yield return new WaitForSeconds(movementDuration);
+
         FootstepEvents();
-        
         movementCoroutine = null;
     }
 
