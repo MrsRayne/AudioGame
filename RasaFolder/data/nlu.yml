@@ -1,92 +1,86 @@
 version: "2.0"
-
 nlu:
-- intent: greet
+- intent: intent_schliessen
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-
-- intent: goodbye
+    - schliess die [fenster](obj)
+    - bitte verschliesse das [fenster](obj)
+    - mach die [fenster](obj) zu
+    - bitte verschliesse das [katze](obj)
+    - mach die [katze](obj) zu
+    - schliess die [katze](obj)
+    - bitte verschliesse das [radio](obj)
+    - mach die [radio](obj) zu
+    - schliess die [radio](obj)
+- intent: intent_oeffnen
   examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
+    - mach das [fenster] (obj) auf
+    - oeffne die [fenster] (obj)
+    - versuch, das [fenster] (obj) zu oeffnen
+    - mach die [fenster] (obj) auf
+    - mach das [katze] (obj) auf
+    - oeffne die [katze] (obj)
+    - versuch, das [katze] (obj) zu oeffnen
+    - mach die [katze] (obj) auf
+    - mach das [radio] (obj) auf
+    - oeffne die [radio] (obj)
+    - versuch, das [radio] (obj) zu oeffnen
+    - mach die [radio] (obj) auf
+- intent: intent_gehe_zu
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
+    - geh zum [radio] (obj)
+    - bewege dich naeher an das [radio] (obj) heran
+    - lauf zum [radio] (obj)
+    - mach dich auf den weg zur [radio] (obj)
+    - richtung [radio] (obj)
+    - geh zu den [radio] (obj)
+    - wo kommt die [radio] (obj) her?
+    - sieh aus dem [radio] (obj)
+    - geh zum [katze] (obj)
+    - bewege dich naeher an das [katze] (obj) heran
+    - lauf zum [katze] (obj)
+    - mach dich auf den weg zur [katze] (obj)
+    - richtung [katze] (obj)
+    - geh zu den [katze] (obj)
+    - wo kommt die [katze] (obj) her?
+    - sieh aus dem [katze] (obj)
+    - geh zum [fenster] (obj)
+    - bewege dich naeher an das [fenster] (obj) heran
+    - lauf zum [fenster] (obj)
+    - mach dich auf den weg zur [fenster] (obj)
+    - richtung [fenster] (obj)
+    - geh zu den [fenster] (obj)
+    - wo kommt die [fenster] (obj) her?
+    - sieh aus dem [fenster] (obj)
+- intent: intent_streichle
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
+    - streichel die [katze] (obj)
+    - streichele die [katze] (obj)
+    - spiel mit der [katze] (obj)
+    - kann ich die [katze] (obj) streicheln?
+    - jo bitte streichel die [katze] (obj)
+    - streichel die [fenster] (obj)
+    - streichele die [fenster] (obj)
+    - spiel mit der [fenster] (obj)
+    - kann ich die [fenster] (obj) streicheln?
+    - jo bitte streichel die [fenster] (obj)
+    - streichel die [radio] (obj)
+    - streichele die [radio] (obj)
+    - spiel mit der [radio] (obj)
+    - kann ich die [radio] (obj) streicheln?
+    - jo bitte streichel die [radio] (obj)
+- synonym: radio
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
+    - musik
+    - radiogeraeusche
+    - frequenzen
+    - fernseher
+    - tisch
+    - radioecke
+- synonym: fenster
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - voegel
+    - vogel
+    - vogelgezwitscher
+    - draussen
+    - natur
+    - fenstertuer

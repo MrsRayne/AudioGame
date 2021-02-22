@@ -58,12 +58,13 @@ public class TriggerFootstepAudio : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1f, groundLayers);
+        Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 2f, groundLayers);
         if (hit.collider && hit.collider != currentGroundCollider)
         {
             currentGroundCollider = hit.collider;
             var meshRenderer = hit.collider.gameObject.GetComponent<MeshRenderer>();
             currentGroundMaterial = meshRenderer ? meshRenderer.sharedMaterial : null;
         }
+        
     }
 }

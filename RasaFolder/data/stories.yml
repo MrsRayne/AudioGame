@@ -2,29 +2,47 @@ version: "2.0"
 
 stories:
 
-- story: happy path
+- story: oeffnen
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: intent_oeffnen
+    entities:
+    - obj: "fenster"
+  - slot_was_set:
+    - obj: "fenster"
+  - action: action_open
 
-- story: sad path 1
+- story: schliessen
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: intent_schliessen
+    entities:
+    - obj: "fenster"
+  - slot_was_set:
+    - obj: "fenster"
+  - action: action_close
 
-- story: sad path 2
+- story: streicheln
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: intent_streichle
+    entities:
+    - obj: "katze"
+  - slot_was_set:
+    - obj: "katze"
+  - action: action_pet
+
+- story: gehe zu
+  steps:
+  - intent: intent_gehe_zu
+    entities:
+    - obj: "fenster"
+  - slot_was_set:
+    - obj: "fenster"
+  - action: action_check_position
+
+- story: interactive_story_1
+  steps:
+  - intent: intent_gehe_zu
+    entities:
+    - obj: fenster
+  - slot_was_set:
+    - obj: fenster
+  - action: action_check_position
