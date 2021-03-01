@@ -11,6 +11,7 @@ public class ActionEncoder : MonoBehaviour
     ActionTypes actionTypes;
     public static ActionEncoder instance;
     [SerializeField] PlayerController playerController;
+    [SerializeField] SoundManager soundManager;
     private void Start()
     {
         instance = this;
@@ -43,7 +44,7 @@ public class ActionEncoder : MonoBehaviour
                     //toReturn = !selectedGameObject.GetComponent<ObjectProperties>().open;
                     //if (toReturn)
                     //{
-                        playerController.OpenWindow();
+                        soundManager.OpenWindow();
                         //selectedGameObject.GetComponent<ObjectProperties>().open = true;
                     //}
                     break;
@@ -52,7 +53,7 @@ public class ActionEncoder : MonoBehaviour
                     //toReturn = selectedGameObject.GetComponent<ObjectProperties>().open;
                     //if (toReturn)
                     //{
-                        playerController.CloseWindow();
+                        soundManager.CloseWindow();
                         //selectedGameObject.GetComponent<ObjectProperties>().open = false;
                     //}
                     break;
@@ -80,7 +81,7 @@ public class ActionEncoder : MonoBehaviour
                     if (selectedGameObject == gameObjects[0])
                     {
                         actionTypes = ActionTypes.Streicheln;
-                        playerController.PetCat();
+                        soundManager.PetCat();
                     }
                     break;
                 default:
